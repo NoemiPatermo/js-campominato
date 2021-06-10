@@ -25,28 +25,43 @@ while userNums.length <= 84
 risultato, stampo lo score che è userNums.length.*/
 
 //GENERO  16 NUMERI CASUALI TRA 1 e 100
-var min= 1;
-var max = 100;
-var listaNumRandom = [];
+
 function getRandomNumber(min, max){
-    while(listaNumRandom.length <= 16){
-        var result = Math.floor(Math.random() * max) + min;
-        return result;
-    }
-    if(listaNumRandom.includes(randomNumPc)){ //come vedo se il numero random è nell'array?
-        listaNumRandom.push(randomNumPc);
-        console.log(listaNumRandom);
-    }
+    var result= Math.floor(Math.random() * max) + min;
+    return result;
 }
-var randomNumPc = getRandomNumber(1,100);
-document.getElementById("result").innerText += "Il numero random del pc è: " + randomNumPc;
 
+// CREO ARRAY VUOTO
+var listaNumRandom = [];
 
-// CREA ARRAY DI 16 NUMERI RANDOM
-/*var listaNumRandom = [""];
 // I NUMERI NON POSSONO ESSERE DUPLICATI
 // RIPETO LA FUNZIONE FINCHè L'ARRAY DEI NMR DEL PC HA 16 ELEMENTI
-while(listaNumRandom.length <= 16){
-    var randomNumPc;
-    listaNumRandom.push();
-}*/
+while (listaNumRandom.length < 16){
+    var result = getRandomNumber(1, 100);
+    if (!listaNumRandom.includes(result)) {
+        listaNumRandom.push(result);
+    } 
+   
+}
+document.getElementById("result1").innerHTML = " Questo è il tuo array : "  + listaNumRandom;//contiene 16 numeri NON duplicati.
+
+
+var listaUserNum = []; //chiedi all'utente di inserire un numero e verifichi se il numero è già presente nell'array.
+                       // se il numero è presente, scatta alert
+
+while (listaUserNum.length < 5){ //qui è 84
+    var userNumb = parseInt(prompt("Inserisci un numero da 1 a 100"));
+
+    if (listaNumRandom.includes(userNumb)) {
+        document.getElementById("result3").innerHTML = "Mi dispiace hai perso!";
+        break;
+
+    } else if(!listaUserNum.includes(userNumb)){ 
+        listaUserNum.push(userNumb);
+
+    } else{
+        alert("inserisci un altro numero!");
+    }  
+   
+}
+document.getElementById("result2").innerHTML = "I tuoi numeri sono: " + listaUserNum + "</br>";
