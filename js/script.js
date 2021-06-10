@@ -24,7 +24,7 @@ while userNums.length <= 84
 
 risultato, stampo lo score che è userNums.length.*/
 
-//genero numeri casuali tra 1 e 100
+//GENERO  16 NUMERI CASUALI TRA 1 e 100
 var min= 1;
 var max = 100;
 function getRandomNumber(min, max){
@@ -32,4 +32,5 @@ function getRandomNumber(min, max){
     return result;
 }
 var randomNumPc = getRandomNumber(1,100);
-document.getElementById("result").innerText = "Il numero random del pc è  " + randomNumPc;
+document.getElementById("result").innerText = "Il numero random del pc è: " + randomNumPc;
+// I NUMERI NON POSSONO ESSERE DUPLICATI
