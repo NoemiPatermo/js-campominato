@@ -26,39 +26,40 @@ while (listaNumRandom.length < 16){
     } 
    
 }
-document.getElementById("result1").innerHTML = " I numeri del pc sono : "  + listaNumRandom + "</br>";//contiene 16 numeri NON duplicati.
+console.log(listaNumRandom);//contiene 16 numeri NON duplicati.
 
 var score = 0;
 var listaUserNum = []; // è il nostro score
 var flag = false;                     
-
-while (listaUserNum.length < 5){ //qui è 84
-    var userNumb = parseInt(prompt("Inserisci un numero da 1 a 100"));
-
-    if (!listaUserNum.includes(userNumb)) { // SE IL NUMERO UTENTE è PRESENTE NELL'ARRAY UTENTE, HAI PERSO
-        
-        if(listaNumRandom.includes(userNumb)){ //SE IL NUMERO UTENTE è PRESENTE DENTRO L'ARRAY PC, FINISCE IL GIOCO
-                
-                flag = true;
-                break;
-        }else  {
-            listaUserNum.push(userNumb); // SE IL NUMERO UTENTE NON è PRESENTE NELL' ARRAY USER, PUSHALO
-            score += 1;
-        }   
-        
-        
-
-    } else{
-        alert("inserisci un altro numero!");
+function play() {
     
-    }  
-   
-}
+    while (listaUserNum.length < 5){ //qui è 84
+        var userNumb = parseInt(prompt("Inserisci un numero da 1 a 100"));
 
-if (!flag) {
-    document.getElementById("result3").innerHTML = "Mi dispiace, hai perso!";
-} else {
-    document.getElementById("result3").innerHTML = "Mi dispiace, hai perso!";
-}
-document.getElementById("result2").innerHTML = "I tuoi numeri sono: " + listaUserNum + "</br>" + "Il tuo punteggio è: " + score;
+        if (!listaUserNum.includes(userNumb)) { // SE IL NUMERO UTENTE è PRESENTE NELL'ARRAY UTENTE, HAI PERSO
+            
+            if(listaNumRandom.includes(userNumb)){ //SE IL NUMERO UTENTE è PRESENTE DENTRO L'ARRAY PC, FINISCE IL GIOCO
+                    
+                    flag = true;
+                    break;
+            }else  {
+                listaUserNum.push(userNumb); // SE IL NUMERO UTENTE NON è PRESENTE NELL' ARRAY USER, PUSHALO
+                score += 1;
+            }   
+            
+            
 
+        } else{
+            alert("inserisci un altro numero!");
+        
+        }  
+    }
+
+    if (!flag) {
+        document.getElementById("result3").innerHTML = "Complimenti, hai vinto!";
+    } else {
+        document.getElementById("result3").innerHTML = "Mi dispiace, hai perso!";
+    }
+    document.getElementById("result2").innerHTML = "I tuoi numeri sono: " + listaUserNum + "</br>" + "Il tuo punteggio è: " + score;
+
+}
