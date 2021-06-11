@@ -38,7 +38,7 @@ while (listaUserNum.length < 5){ //qui è 84
     if (!listaUserNum.includes(userNumb)) { // SE IL NUMERO UTENTE è PRESENTE NELL'ARRAY UTENTE, HAI PERSO
         
         if(listaNumRandom.includes(userNumb)){ //SE IL NUMERO UTENTE è PRESENTE DENTRO L'ARRAY PC, FINISCE IL GIOCO
-                document.getElementById("result3").innerHTML = "Mi dispiace, hai perso!";
+                
                 flag = true;
                 break;
         }else  {
@@ -56,9 +56,9 @@ while (listaUserNum.length < 5){ //qui è 84
 }
 
 if (!flag) {
-    alert ("Hai vintooooooooooo!");
+    document.getElementById("result3").innerHTML = "Mi dispiace, hai perso!";
 } else {
-    alert("Bravo! Hai vinto!");
+    document.getElementById("result3").innerHTML = "Mi dispiace, hai perso!";
 }
 document.getElementById("result2").innerHTML = "I tuoi numeri sono: " + listaUserNum + "</br>" + "Il tuo punteggio è: " + score;
 
