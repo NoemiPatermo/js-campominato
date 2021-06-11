@@ -30,7 +30,7 @@ document.getElementById("result1").innerHTML = " I numeri del pc sono : "  + lis
 
 var score = 0;
 var listaUserNum = []; // è il nostro score
-                       
+var flag = false;                     
 
 while (listaUserNum.length < 5){ //qui è 84
     var userNumb = parseInt(prompt("Inserisci un numero da 1 a 100"));
@@ -39,6 +39,7 @@ while (listaUserNum.length < 5){ //qui è 84
         
         if(listaNumRandom.includes(userNumb)){ //SE IL NUMERO UTENTE è PRESENTE DENTRO L'ARRAY PC, FINISCE IL GIOCO
                 document.getElementById("result3").innerHTML = "Mi dispiace, hai perso!";
+                flag = true;
                 break;
         }else  {
             listaUserNum.push(userNumb); // SE IL NUMERO UTENTE NON è PRESENTE NELL' ARRAY USER, PUSHALO
@@ -52,6 +53,12 @@ while (listaUserNum.length < 5){ //qui è 84
     
     }  
    
+}
+
+if (!flag) {
+    alert ("Hai vintooooooooooo!");
+} else {
+    alert("Bravo! Hai vinto!");
 }
 document.getElementById("result2").innerHTML = "I tuoi numeri sono: " + listaUserNum + "</br>" + "Il tuo punteggio è: " + score;
 
