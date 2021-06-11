@@ -10,7 +10,7 @@
 //GENERO  16 NUMERI CASUALI TRA 1 e 100
 
 function getRandomNumber(min, max){
-    var result= Math.floor(Math.random() * max) + min;
+    var result= Math.floor(Math.random() * (max - min + 1) + min);
     return result;
 }
 
@@ -26,22 +26,25 @@ while (listaNumRandom.length < 16){
     } 
    
 }
-document.getElementById("result1").innerHTML = " Questo è il tuo array : "  + listaNumRandom;//contiene 16 numeri NON duplicati.
+document.getElementById("result1").innerHTML = " I numeri del pc sono : "  + listaNumRandom + "</br>";//contiene 16 numeri NON duplicati.
 
 var score = 0;
-var listaUserNum = []; 
+var listaUserNum = []; // è il nostro score
                        
 
 while (listaUserNum.length < 5){ //qui è 84
-    var userNumb = prompt("Inserisci un numero da 1 a 100");
+    var userNumb = parseInt(prompt("Inserisci un numero da 1 a 100"));
 
-    if (listaNumRandom.includes(userNumb)) { // SE IL NUMERO UTENTE è PRESENTE NELL'ARRAY PC, HAI PERSO
-        document.getElementById("result3").innerHTML = "Mi dispiace hai perso!";
-        break;
-
-    } else if(!listaUserNum.includes(userNumb)){ // SE IL NUMERO UTENTE NON è PRESENTE NELL' ARRAY USER, PUSHALO
-        listaUserNum.push(userNumb);
-        score += 1;
+    if (!listaUserNum.includes(userNumb)) { // SE IL NUMERO UTENTE è PRESENTE NELL'ARRAY UTENTE, HAI PERSO
+        
+        if(listaNumRandom.includes(userNumb)){ //SE IL NUMERO UTENTE è PRESENTE DENTRO L'ARRAY PC, FINISCE IL GIOCO
+                document.getElementById("result3").innerHTML = "Mi dispiace, hai perso!";
+                break;
+        }else  {
+            listaUserNum.push(userNumb); // SE IL NUMERO UTENTE NON è PRESENTE NELL' ARRAY USER, PUSHALO
+            score += 1;
+        }   
+        
         
 
     } else{
