@@ -8,16 +8,16 @@ function getRandomNumber(min, max){
 var difficoltà = parseInt(prompt("scegli un livello di difficoltà fra 0 e 2"));
 switch (difficoltà) {
 
-    case "0":
-    var diff = (100-16);
+    case 0:
+    var diff = 100-16;
         break;
 
-    case "1":
-     var diff = (80 - 16);
+    case 1:
+     var diff = 80 - 16;
         break;
 
-    case "2":
-    var diff = (50-15);
+    case 2:
+    var diff = 50-15;
         break;
 
 }
