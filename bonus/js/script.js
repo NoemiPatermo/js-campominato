@@ -67,5 +67,5 @@ function play() {
     document.getElementById("result2").innerHTML = "I tuoi numeri sono: " + listaUserNum + "</br>" + "Il tuo punteggio è: " + score;
 
 }
-/*
-*/
+
+
