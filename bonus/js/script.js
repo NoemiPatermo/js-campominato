@@ -4,6 +4,7 @@ function getRandomNumber(min, max){
     var result= Math.floor(Math.random() * (max - min + 1) + min);
     return result;
 }
+// USO LO SWITCH PER TESTARE I LIVELLO DI DIFFICOLTà
 
 var difficoltà = parseInt(prompt("scegli un livello di difficoltà fra 0 e 2"));
 switch (difficoltà) {
@@ -35,11 +36,16 @@ while (listaNumRandom.length < 16){
 console.log(listaNumRandom);//contiene 16 numeri NON duplicati.
 
 var score = 0;
-var listaUserNum = []; // è il nostro score
-var flag = false;                     
-function play() {
+var listaUserNum = []; // la lunghezza di questo array è il nostro score
+var flag = false;  
+
+function play() { // al click del mio bottone si avvia la funzione
     while (listaUserNum.length < 5){ //qui è 84
         var userNumb = parseInt(prompt("Inserisci un numero da 1 a 100"));
+        //e se inserisce un numero maggiore di 100 e minore di 1?
+        if (userNumb < 1 || userNumb > 100){
+            alert('Il numero deve essere compreso tra 1 e 100');
+        }
 
         if (!listaUserNum.includes(userNumb)) { // SE IL NUMERO UTENTE è PRESENTE NELL'ARRAY UTENTE, HAI PERSO
             
